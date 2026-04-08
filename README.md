@@ -149,4 +149,4 @@ Sobald der Server deployed ist, sollten wir in der Extension:
 1. beim ersten Start `name/handle` abfragen
 2. `playerId + playerToken` lokal speichern
 3. Scores regelmaessig an `/api/leaderboard` senden
-4. eine Leaderboard-Ansicht im Widget einbauen
+4. eine Leaderboard-Ansicht im Widget einbauen.
