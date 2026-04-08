@@ -44,12 +44,12 @@ module.exports = async function handler(req, res) {
 
     sendJson(req, res, 200, {
       ok: true,
-      message: "Player registered.",
+      message: "Player authenticated.",
       playerId: result.playerId,
       playerToken: result.playerToken,
       player: result.player,
       warning:
-        "Store playerId and playerToken in the extension. The token is required for future score updates.",
+        "Store playerId and playerToken in the extension. Use the same handle and password later to recover the same account.",
     });
   } catch (error) {
     sendError(

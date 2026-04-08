@@ -4,6 +4,7 @@ create table if not exists public.leaderboard_players (
   id uuid primary key default gen_random_uuid(),
   name text not null check (char_length(name) between 2 and 40),
   handle text,
+  password_hash text,
   points integer not null default 0 check (points >= 0),
   level integer not null default 0 check (level >= 0),
   streak integer not null default 0 check (streak >= 0),
@@ -14,6 +15,13 @@ create table if not exists public.leaderboard_players (
 
 create index if not exists leaderboard_players_points_idx
   on public.leaderboard_players (points desc, level desc, streak desc, updated_at asc);
+
+create index if not exists leaderboard_players_handle_idx
+  on public.leaderboard_players (handle);
+
+create unique index if not exists leaderboard_players_handle_unique_idx
+  on public.leaderboard_players (handle)
+  where handle is not null and handle <> '';
 
 create or replace function public.set_leaderboard_updated_at()
 returns trigger
