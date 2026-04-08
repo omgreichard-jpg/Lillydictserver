@@ -1,0 +1,13 @@
+{
+  "name": "lillydict-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vercel backend scaffold for Lillydict leaderboard APIs",
+  "scripts": {
+    "dev": "vercel dev",
+    "check": "node --check api/health.js && node --check api/register.js && node --check api/leaderboard.js && node --check lib/config.js && node --check lib/crypto.js && node --check lib/http.js && node --check lib/leaderboard-store.js && node --check lib/rate-limit.js && node --check lib/supabase.js && node --check lib/validation.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
